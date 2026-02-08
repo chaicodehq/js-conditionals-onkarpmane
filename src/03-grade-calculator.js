@@ -26,4 +26,26 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  let toConvertNumber = Number(score);
+  if(toConvertNumber<0 || toConvertNumber>100 || isNaN(toConvertNumber)){
+    return 'INVALID'
+  }
+  if(hasExtraCredit){
+    toConvertNumber = toConvertNumber + 5;
+    toConvertNumber=Math.min(toConvertNumber,100)
+  }
+  let grade;
+  if(toConvertNumber>=0 && toConvertNumber<=59){
+    grade ='F'
+  }else if(toConvertNumber>=60 && toConvertNumber<=69){
+    grade = "D"
+  }else if(toConvertNumber>=70 && toConvertNumber<=79){
+    grade ="C"
+  }else if(toConvertNumber>=80 && toConvertNumber<=89){
+    grade ="B"
+  }else{
+    grade = "A"
+  }
+
+  return grade;
 }
